@@ -5,6 +5,7 @@ Problem 5 - Smallest multiple
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
 
+import math
 from typing import Dict
 from common.primes import get_prime_factors, generate_primes
 
@@ -34,7 +35,7 @@ for factor in factor_count:
 
 print(result)
 
-# Optimal solution (assuming generation of primes is cheaper than factorization given above)
+# Better solution (assuming generation of primes is cheaper than factorization given above)
 result = 1
 primes = generate_primes(MAX_NUMBER)
 for prime in primes:
@@ -43,5 +44,17 @@ for prime in primes:
         prev_val = curr_val
         curr_val *= prime
     result *= prev_val
+
+print(result)
+
+
+# Optimal solution (assuming generation of primes is cheaper than factorization given above)
+result = 1
+primes = generate_primes(MAX_NUMBER)
+for prime in primes:
+    exponent = math.floor(
+        math.log(MAX_NUMBER) / math.log(prime)
+    )
+    result *= prime ** exponent
 
 print(result)
