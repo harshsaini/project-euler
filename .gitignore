@@ -6,6 +6,10 @@ venv/**
 .vscode
 .vscode/**
 
+# Ignore solution overiew PDFs
+solution-overviews
+solution-overviews/**
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
